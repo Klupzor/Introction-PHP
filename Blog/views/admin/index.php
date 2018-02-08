@@ -17,7 +17,7 @@
         <div class="col-md-8">
           <h2>Admin Panel</h2>
           <li>
-            <a href="posts.php">Manage Post</a>
+            <a href="<?php echo BASE_URL; ?>admin/posts">Manage Post</a>
           </li>
           </div>
         <div class="col-md-4">
