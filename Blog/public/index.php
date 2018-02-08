@@ -27,6 +27,7 @@ function render($fileName, $params = []){
   return ob_get_clean();
 }
 
+// agregando rutas ..........................
 $route = $_GET['route'] ?? '/';
 use Phroute\Phroute\RouteCollector;
 
@@ -35,9 +36,21 @@ $router = new RouteCollector();
 $router->get('/admin',function(){
   return render('../views/admin/index.php');
 });
+
+$router->get('/admin/posts',function() use($pdo) {
+
+  $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
+  $query->execute();
+
+
+  $blogPost = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+  return render('../views/admin/posts.php', ['blogPost' => $blogPost]);
+});
+
 $router->get('/', function () use ($pdo){
 
-  include_once 'config.php';
   $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
   $query->execute();
 

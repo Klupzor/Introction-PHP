@@ -1,12 +1,3 @@
-<?php
-include_once '../config.php';
-$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-$query->execute();
-
-
-$blogPost = $query->fetchAll(PDO::FETCH_ASSOC);
- ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,22 +15,23 @@ $blogPost = $query->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <div class="row">
         <div class="col-md-8">
-          <h2>Post</h2>
-          <a class="btn btn-primary" href="insert-post.php">New post</a>
-          <table class="table">
-            <tr>
-              <th>Title</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            <?php foreach ($blogPost as $blogPost) :?>
-              <tr>
-                <td><?php echo $blogPost['title'] ?></td>
-                <td>Edit</td>
-                <td>Delete</td>
-              </tr>
-            <?php endforeach ?>
-          </table>
+          <h2>New Post</h2>
+          <a class="btn btn-primary" href="posts.php">Back</a>
+          <br>
+          <?php if ($result): ?>
+            <div class="alert alert-success">
+              Post Saved!!
+            </div>
+          <?php endif ?>
+          <form class="" action="insert-post.php" method="post">
+            <div class="form-goup">
+              <label for="inputTitle">Title</label>
+              <input class="form-control"type="text" name="title" value="" id="inputTitle">
+            </div>
+            <textarea class="form-control" id="inputContent" name="content" rows="5" ></textarea>
+            <br>
+            <input class="btn btn-primary"type="submit" value="Save">
+          </form>
           </div>
         <div class="col-md-4">
           Sidebar
