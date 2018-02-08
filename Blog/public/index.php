@@ -32,6 +32,9 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->get('/admin',function(){
+  return render('../views/admin/index.php');
+});
 $router->get('/', function () use ($pdo){
 
   include_once 'config.php';
