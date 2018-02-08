@@ -49,6 +49,12 @@ $router->get('/admin/posts',function() use($pdo) {
   return render('../views/admin/posts.php', ['blogPost' => $blogPost]);
 });
 
+$router->get('/admin/posts/create',function()
+ {
+   $result = false;
+  return render('../views/admin/insert-post.php',['result' => $result]);
+});
+
 $router->get('/', function () use ($pdo){
 
   $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');

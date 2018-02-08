@@ -16,7 +16,9 @@
       <div class="row">
         <div class="col-md-8">
           <h2>Post</h2>
-          <a class="btn btn-primary" href="insert-post.php">New post</a>
+          <p>
+            <a class="btn btn-primary" href="<?php echo BASE_URL; ?>admin/posts/create">New post</a>
+          </p>
           <table class="table">
             <tr>
               <th>Title</th>
@@ -40,7 +42,7 @@
         <div class="col-md-12">
           <footer>
             This is a footer <br>
-            <a href="admin/index.php">Admin Panel</a>
+            <a href="<?php echo BASE_URL; ?>admin">Admin Panel</a>
           </footer>
         </div>
       </div>
