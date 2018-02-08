@@ -15,8 +15,9 @@
       </div>
       <div class="row">
         <div class="col-md-8">
+          <h2>Admin Panel</h2>
           <li>
-            <a href="posts.php">Manage</a>
+            <a href="posts.php">Manage Post</a>
           </li>
           </div>
         <div class="col-md-4">
