@@ -49,9 +49,20 @@ $router->get('/admin/posts',function() use($pdo) {
   return render('../views/admin/posts.php', ['blogPost' => $blogPost]);
 });
 
-$router->get('/admin/posts/create',function()
+$router->get('/admin/posts/create', function()
  {
-   $result = false;
+  return render('../views/admin/insert-post.php');
+});
+$router->post('/admin/posts/create', function() use ($pdo)
+ {
+   $sql = 'INSERT INTO blog_post(title, content) VALUES (:title, :content)';
+   $query = $pdo->prepare($sql);
+   $result = $query->execute([
+     'title' => $_POST['title'],
+     'content' => $_POST['content']
+
+   ]);
+
   return render('../views/admin/insert-post.php',['result' => $result]);
 });
 

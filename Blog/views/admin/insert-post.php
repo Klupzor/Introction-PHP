@@ -16,14 +16,14 @@
       <div class="row">
         <div class="col-md-8">
           <h2>New Post</h2>
-          <a class="btn btn-primary" href="posts.php">Back</a>
+          <a class="btn btn-primary" href="<?php echo BASE_URL; ?>admin/posts">Back</a>
           <br>
-          <?php if ($result): ?>
+          <?php if (isset($result) && $result): ?>
             <div class="alert alert-success">
               Post Saved!!
             </div>
           <?php endif ?>
-          <form class="" action="insert-post.php" method="post">
+          <form class=""  method="post">
             <div class="form-goup">
               <label for="inputTitle">Title</label>
               <input class="form-control"type="text" name="title" value="" id="inputTitle">
