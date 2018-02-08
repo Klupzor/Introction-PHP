@@ -5,7 +5,7 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 // incluimos la libreria phroute con composer para trabajar todas las rutas desde nuestro front controler
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 include_once 'config.php';
 // definiendo ruta base...............
 $baseUrl = '';
@@ -65,19 +65,9 @@ $router->post('/admin/posts/create', function() use ($pdo)
 
   return render('../views/admin/insert-post.php',['result' => $result]);
 });
+// ruta raiz ....
 
-$router->get('/', function () use ($pdo){
-
-  $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-  $query->execute();
-
-
-  $blogPost = $query->fetchAll(PDO::FETCH_ASSOC);
-  return render('../views/index.php',['blogPost' => $blogPost]);
-
-   // include '../views/index.php';
-
-});
+$router->controller('/',App\Controllers\indexController::class);
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $route);

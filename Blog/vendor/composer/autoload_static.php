@@ -4,12 +4,16 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite1e91c12942fa9e5e9a5ff30143aabba
+class ComposerStaticInit844ab542308d7761d010d1fd1bcbf573
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
             'Phroute\\Phroute\\' => 16,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -18,13 +22,17 @@ class ComposerStaticInite1e91c12942fa9e5e9a5ff30143aabba
         array (
             0 => __DIR__ . '/..' . '/phroute/phroute/src/Phroute',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App',
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite1e91c12942fa9e5e9a5ff30143aabba::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite1e91c12942fa9e5e9a5ff30143aabba::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit844ab542308d7761d010d1fd1bcbf573::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit844ab542308d7761d010d1fd1bcbf573::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
