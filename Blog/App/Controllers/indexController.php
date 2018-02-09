@@ -1,7 +1,7 @@
 <?php
  namespace App\Controllers;
 
-class indexController{
+class indexController extends BaseController{
   public function getIndex(){
 
     // la definimos global para que la importe de scope superior
@@ -12,7 +12,7 @@ class indexController{
 
 
     $blogPost = $query->fetchAll(\PDO::FETCH_ASSOC);
-    return render('../views/index.php',['blogPost' => $blogPost]);
+    return $this->render('index.twig',['blogPost' => $blogPost]);
 
      // include '../views/index.php';
   }

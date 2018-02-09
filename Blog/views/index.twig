@@ -15,18 +15,23 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <?php   foreach ($blogPost as $blog_post): ?>
+          <!-- agregamos lenguaje twig -->
+          <!-- <?php   foreach ($blogPost as $blog_post): ?> -->
+          {% for blogPost in blogPost %}
             <div class="blog-post">
-            <h2><?php echo $blog_post['title'] ?></h2>
+            <!-- <h2><?php echo $blog_post['title'] ?></h2> -->
+            <h2>{{ blogPost.title }}</h2>
             <p>Jan 1, 2020 <a href="#"> </a> </p>
             <div class="blog-post-image">
               <img src="images/teclado.jpg" alt="Teclado">
             </div>
             <div class="blog-post-content">
-              <?php echo $blog_post['content'] ?>
+              <!-- <?php echo $blog_post['content'] ?> -->
+              {{ blogPost.content }}
             </div>
             </div>
-          <?php endforeach ?>
+          <!-- <?php endforeach ?> -->
+          {% endfor %}
           </div>
         <div class="col-md-4">
           Sidebar
@@ -36,7 +41,8 @@
         <div class="col-md-12">
           <footer>
             This is a footer <br>
-            <a href="<?php echo BASE_URL; ?>admin">Admin Panel</a>
+            <!-- <a href="<?php echo BASE_URL; ?>admin">Admin Panel</a> -->
+            <a href="{{ 'admin' | url }}">Admin Panel</a>
           </footer>
         </div>
       </div>
