@@ -1,7 +1,9 @@
 <?php
 namespace APP\Controllers\Admin;
 
-class PostController {
+use App\Controllers\BaseController;
+
+class PostController extends BaseController {
   public function getIndex(){
     global $pdo;
     $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
@@ -11,11 +13,11 @@ class PostController {
     $blogPost = $query->fetchAll(\PDO::FETCH_ASSOC);
 
 
-    return render('../views/admin/posts.php', ['blogPost' => $blogPost]);
+    return $this->render('admin/posts.twig', ['blogPost' => $blogPost]);
   }
 
     public function getCreate(){
-      return render('../views/admin/insert-post.php');
+      return $this->render('admin/insert-post.twig');
 
     }
 
@@ -29,7 +31,7 @@ class PostController {
 
       ]);
 
-     return render('../views/admin/insert-post.php',['result' => $result]);
+     return $this->render('admin/insert-post.twig',['result' => $result]);
     }
 }
 
