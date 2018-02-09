@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<h2>New Post</h2>
+<a class="btn btn-primary" href="{{'admin/posts' | url }}">Back</a>
+<br>
+{% if result %}
+<!-- <?php if (isset($result) && $result): ?> -->
+  <div class="alert alert-success">
+    Post Saved!!
+  </div>
+<!-- <?php endif ?> -->
+{% endif %}
+<form class=""  method="post">
+  <div class="form-goup">
+    <label for="inputTitle">Title</label>
+    <input class="form-control"type="text" name="title" value="" id="inputTitle">
+  </div>
+  <textarea class="form-control" id="inputContent" name="content" rows="5" ></textarea>
+  <br>
+  <input class="btn btn-primary"type="submit" value="Save">
+</form>
+{% endblock %}

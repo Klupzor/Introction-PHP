@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<h2>Post</h2>
+<p>
+  <a class="btn btn-primary" href="{{'admin/posts/create' | url }}">New post</a>
+</p>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <?php foreach ($blogPost as $blogPost) :?>
+    {% for blogPost in blogPost %}
+      <tr>
+      <!-- <td><?php echo $blogPost['title'] ?></td> -->
+      <td>{{ blogPost.title }}</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  <!-- <?php endforeach ?> -->
+  {% endfor %}
+</table>
+{% endblock %}
