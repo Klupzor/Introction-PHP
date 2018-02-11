@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 // incluimos la libreria phroute con composer para trabajar todas las rutas desde nuestro front controler
 
 require_once '../vendor/autoload.php';
-include_once 'config.php';
+// include_once 'config.php';
 // definiendo ruta base...............
 $baseUrl = '';
 $baseName = basename($_SERVER['SCRIPT_NAME']);
@@ -18,15 +18,31 @@ define('BASE_URL', $baseUrl);
 // var_dump($baseUrl);
 // .......................................
 
-function render($fileName, $params = []){
-  ob_start();
+// function render($fileName, $params = []){
+//   ob_start();
+//
+//   extract($params);
+//   include $fileName;
+//
+//   return ob_get_clean();
+// }
 
-  extract($params);
-  include $fileName;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-  return ob_get_clean();
-}
+$capsule = new Capsule;
 
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'cursophp',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 // agregando rutas ..........................
 $route = $_GET['route'] ?? '/';
 use Phroute\Phroute\RouteCollector;
