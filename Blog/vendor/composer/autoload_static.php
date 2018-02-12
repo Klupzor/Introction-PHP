@@ -20,6 +20,7 @@ class ComposerStaticInit5f1c0d07213615bd1c1afdf7c20d8e34
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
+            'Sirius\\Validation\\' => 18,
         ),
         'P' => 
         array (
@@ -61,6 +62,10 @@ class ComposerStaticInit5f1c0d07213615bd1c1afdf7c20d8e34
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Sirius\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/siriusphp/validation/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (
