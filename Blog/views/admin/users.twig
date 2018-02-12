@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+{% block content %}
+<h2>Users</h2>
+<p>
+  <a class="btn btn-primary" href="{{'admin/posts/users/create' | url }}">New User</a>
+</p>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <?php foreach ($blogPost as $blogPost) :?>
+    {% for user in users %}
+      <tr>
+      <!-- <td><?php echo $blogPost['title'] ?></td> -->
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  <!-- <?php endforeach ?> -->
+  {% endfor %}
+</table>
+{% endblock %}

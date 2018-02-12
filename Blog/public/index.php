@@ -42,6 +42,7 @@ $router = new RouteCollector();
 
 $router->controller('/','App\Controllers\IndexController');
 $router->controller('/admin',App\Controllers\admin\IndexController::class);
+$router->controller('/admin/users',App\Controllers\admin\UserController::class);
 $router->controller('/admin/posts',App\Controllers\admin\postController::class);
 
 
