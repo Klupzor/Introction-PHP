@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 // incluimos la libreria phroute con composer para trabajar todas las rutas desde nuestro front controler
 
 require_once '../vendor/autoload.php';
+session_start();
 // include_once 'config.php';
 // definiendo ruta base...............
 $baseUrl = '';
@@ -40,6 +41,7 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->controller('/auth', App\Controllers\AuthController::class);
 $router->controller('/','App\Controllers\IndexController');
 $router->controller('/admin',App\Controllers\admin\IndexController::class);
 $router->controller('/admin/users',App\Controllers\admin\UserController::class);
