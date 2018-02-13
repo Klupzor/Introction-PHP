@@ -41,11 +41,21 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->filter('auth', function(){
+    if (!isset($_SESSION['userId'])){
+        header('Location: ' . BASE_URL . 'auth/login');
+        return false;
+    }
+});
+
 $router->controller('/auth', App\Controllers\AuthController::class);
-$router->controller('/','App\Controllers\IndexController');
+$router->group(['before' => 'auth'], function ($router){
 $router->controller('/admin',App\Controllers\admin\IndexController::class);
 $router->controller('/admin/users',App\Controllers\admin\UserController::class);
 $router->controller('/admin/posts',App\Controllers\admin\postController::class);
+    
+});
+$router->controller('/','App\Controllers\IndexController');
 
 
 // ruta raiz ....
