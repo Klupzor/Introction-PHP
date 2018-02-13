@@ -29,6 +29,11 @@ class PostController extends BaseController {
           'content' => $_POST['content']
 
         ]);
+        
+        if ($_POST['image']){
+            $blogPost->img_url = $_POST['image'];
+        }
+        
         $blogPost->save();
         $result = true;
 
