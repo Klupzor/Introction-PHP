@@ -2,10 +2,14 @@
 
 {% block content %}
 <h2>Admin Panel</h2>
+<p>Welcome {{user.name}}!</p>
 <li>
   <a href="{{'admin/posts' | url }}">Manage Post</a>
 </li>
 <li>
   <a href="{{'admin/users' | url }}">Manage Users</a>
+</li>
+<li>
+  <a href="{{'auth/logout' | url }}">Logout</a>
 </li>
 {% endblock %}
